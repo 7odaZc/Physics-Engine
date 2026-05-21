@@ -1,67 +1,163 @@
-# Simple Physics Engine for Gaming
+# Physics Engine / Star Shooter
 
-A complete Pygame project for the **SWGCG 352 Project**: a modular physics engine plus an interactive game that demonstrates multiple physics modules.
+## Overview
+This project is a physics simulation application developed using Python and Pygame.  
+The application contains multiple interactive physics demonstrations and a small arcade game called **Star Shooter**.
 
-## Implemented modules
+The purpose of the project is to demonstrate the implementation of different physics systems such as:
 
-- Particle system with gravity, lifespan, and burst emission
-- Mass-spring soft body using verlet integration
-- Position-Based Dynamics rope/chain solver
-- Rigid body circles with linear motion, angular motion, and collisions
-- Forward kinematics and inverse kinematics for a 2-link arm
-- **Ball Smash**, a small arcade game built from the rigid-body system
-- Interactive demo scenes with a menu and controls
+- Particle Systems
+- Mass-Spring Soft Bodies
+- Position-Based Dynamics (PBD)
+- Rigid Body Dynamics
+- Forward and Inverse Kinematics
 
-## How to run
+---
 
-```bash
-pip install -r requirements.txt
-python main.py
-```
+# Main Features
 
-## Controls
+## 1. Star Shooter Game
+A small arcade shooting game built using the rigid-body system.
 
-- `1` Ball Smash game
-- `2` Particle system demo
-- `3` Mass-spring soft body demo
-- `4` PBD rope demo
-- `5` Rigid body demo
-- `6` Kinematics demo
-- `R` Reset current scene
-- `ESC` Quit
+### Features
+- Player movement
+- Enemy spawning
+- Bullet shooting system
+- Collision detection
+- Score system
+- Lives system
+- Win and lose screens
+- Particle explosion effects
 
-### Ball Smash controls
+### Controls
+| Key | Action |
+|-----|--------|
+| A / Left Arrow | Move Left |
+| D / Right Arrow | Move Right |
+| Space / Left Click | Shoot |
+| R / Enter | Restart Game |
 
-- Left click or press `Space` to shoot a ball toward the mouse
-- Pop the falling targets before they hit the ground
-- Your score increases when you hit or break targets
-- The game lasts 60 seconds
+---
 
-### Scene controls
+## 2. Particle System
+A particle simulation scene used to create effects such as explosions and trails.
 
-**Particle demo**
-- Move the mouse to move the emitter
-- Left click to burst particles
+### Features
+- Gravity effect
+- Velocity-based motion
+- Particle fading
+- Burst emission
 
-**Mass-spring demo**
-- Left click and drag a node
-- Press `R` to reset the soft body
+### Controls
+| Action | Result |
+|--------|--------|
+| Move Mouse | Move emitter |
+| Left Click | Create particle burst |
 
-**PBD rope demo**
-- Left click and drag the rope end
-- Press `R` to reset the rope
+---
 
-**Rigid body demo**
-- Left click to spawn a ball
-- Right click to spawn a bigger ball
-- Hold `SPACE` to create a downward impulse burst
-- Press `R` to reset the world
+## 3. Mass-Spring Soft Body
+A deformable soft-body simulation based on springs and point masses.
 
-**Kinematics demo**
-- Move the mouse to set the IK target
-- Press `E` to toggle elbow mode
-- Press `R` to reset the arm
+### Features
+- Spring constraints
+- Verlet integration
+- Interactive dragging
+- Stable pinned points
 
-## Notes
+### Controls
+| Action | Result |
+|--------|--------|
+| Left Click + Drag | Move soft-body nodes |
 
-This project is designed so that all physics systems are visible in one application and can be tested independently. It is fully asset-free, so it runs without external images or audio.
+---
+
+## 4. PBD Rope Simulation
+A rope simulation using Position-Based Dynamics.
+
+### Features
+- Rope constraints
+- Segment stabilization
+- Interactive endpoint dragging
+
+### Controls
+| Action | Result |
+|--------|--------|
+| Left Click + Drag | Move rope end |
+
+---
+
+## 5. Rigid Body Dynamics
+A physics simulation for circular rigid bodies.
+
+### Features
+- Gravity
+- Collision response
+- Friction
+- Angular velocity
+- Bounce simulation
+
+### Controls
+| Key / Action | Result |
+|--------------|--------|
+| Left Click | Spawn small body |
+| Right Click | Spawn large body |
+| Hold Space | Apply force impulse |
+
+---
+
+## 6. Kinematics System
+A robotic arm simulation demonstrating Forward and Inverse Kinematics.
+
+### Features
+- Two-link arm system
+- Inverse kinematics targeting
+- Elbow mode switching
+
+### Controls
+| Key / Action | Result |
+|--------------|--------|
+| Move Mouse | Change target position |
+| E | Toggle elbow mode |
+
+---
+
+# Scene Switching
+
+| Key | Scene |
+|-----|-------|
+| 1 | Star Shooter |
+| 2 | Particle System |
+| 3 | Mass-Spring Soft Body |
+| 4 | PBD Rope |
+| 5 | Rigid Body Dynamics |
+| 6 | Kinematics |
+| R | Reset Current Scene |
+| ESC | Exit Application |
+
+---
+
+# Technologies Used
+
+- Python 3
+- Pygame
+
+---
+
+# Project Structure
+
+```text
+main.py
+
+engine/
+│
+├── particle.py
+├── mass_spring.py
+├── pbd.py
+├── rigid_body.py
+└── kinematics.py
+
+game/
+│
+├── app.py
+└── scenes.py
